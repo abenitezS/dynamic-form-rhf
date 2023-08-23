@@ -46,7 +46,7 @@ export const Form = ({ ...props }: Props) => {
 		<FormProvider {...formMethods}>
 			<form
 				onSubmit={formMethods.handleSubmit(onSubmit)}
-				className='bg-secondary rounded-md p-10 pt-5 shadow-2xl shadow-primary/30 flex flex-col gap-2 border border-primary w-full min-h-[390px]'
+				className='bg-secondary rounded-md p-10 pt-5 shadow-2xl shadow-primary/30 flex flex-col gap-4 border border-primary w-full min-h-[390px]'
 			>
 				{titleForm && (
 					<h5 className='font-extrabold text-center text-2xl pb-2 mb-2 border-b border-white/50'>

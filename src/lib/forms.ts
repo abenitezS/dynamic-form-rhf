@@ -1,80 +1,114 @@
 import { FormSection, InputProps } from '../types';
 
 
-
 export const forms: { [K in FormSection]: InputProps[] } =
 {
 
     register: [
         {
-            label: "New username",
+            label: "Número de Cuit",
+            type: "cuit",
+            name: "cuit",
+            placeholder: "Número de Cuit",
+            value: "",
+            validations: [
+                {
+                    type: "required",
+                    message: "Debe ingresar cuit"
+                },
+                {
+                    type: "fixLength",
+                    value: 11,
+                    message: "Cuit debe tener 11 digitos numericos",
+                },
+                {
+                    type: "positive",
+                    message: "Debe ser número entero y positivo",
+
+                },
+            ],
+        },
+        {
+
+            label: "Razon Social",
             type: "text",
-            name: "username",
-            placeholder: "New username",
+            name: "razon",
+            placeholder: "Razón Social ",
+            value: "",
+            validations: [
+                {
+                    type: "minLength",
+                    value: 4,
+                    message: "Min. 10 characteres",
+                },
+                {
+                    type: "required",
+                    message: "Razón Social es requerido",
+                },
+                {
+                    type: "isRazon",
+                    message: 'Razon Social es invalida',
+
+                }
+
+            ],
+
+        },
+        {
+
+            label: "Nombre",
+            type: "text",
+            name: "Nombre",
+            placeholder: "Ingrese Nombre",
             value: "",
             validations: [
                 {
                     type: "minLength",
                     value: 3,
-                    message: "Min. 3 characters",
+                    message: "Min. 3 characteres",
                 },
                 {
                     type: "required",
-                    message: "Username is required"
+                    message: "Nombres is requerido",
                 },
+                {
+                    type: "isName",
+                    message: 'Nombre invalido',
+
+                }
+
             ],
 
         },
         {
-            label: "New Password",
-            type: "password",
-            name: "password",
-            placeholder: "New password",
+
+            label: "Apellido",
+            type: "text",
+            name: "apellido",
+            placeholder: "Ingrese Apellido",
             value: "",
             validations: [
                 {
-                    type: "required",
-                    message: "Password is required"
+                    type: "minLength",
+                    value: 3,
+                    message: "Min. 3 characteres",
                 },
                 {
-                    type: "minLength",
-                    value: 5,
-                    message: "Min. 5 characters",
-                }
-            ],
+                    type: "required",
+                    message: "Apellido is requerido",
+                },
+                {
+                    type: "isName",
+                    message: 'Nombre invalido',
 
-        },
-        {
-            label: 'Repeat your password',
-            type: "password",
-            name: "repeat_password",
-            placeholder: "Repeat password",
-            value: "",
-            validations: [
-                {
-                    type: "required",
-                    message: "Repeat password is required"
-                },
-                {
-                    type: "minLength",
-                    value: 5,
-                    message: "Min. 5 characters",
-                },
-                {
-                    type: 'oneOf',
-                    message: 'Passwords must match',
-                    ref: 'password'
                 }
+
             ],
 
         },
 
-    ],
-
-    another: [
-
         {
-            label: "E-mail address",
+            label: "Mail oficial",
             type: "email",
             name: "email",
             placeholder: "correo@correo.com",
@@ -82,81 +116,62 @@ export const forms: { [K in FormSection]: InputProps[] } =
             validations: [
                 {
                     type: "required",
-                    message: "Email is required"
+                    message: "Mail is requirido"
                 },
                 {
                     type: "isEmail",
-                    message: "Email no valid"
+                    message: "Mail no es valido"
                 }
             ],
 
         },
         {
-            type: "select",
-            name: "rol",
-            label: "Select an option: ",
+            label: "Teléfono",
+            type: "text",
+            name: "telefono",
+            placeholder: "Teléfono",
             value: "",
-            options: [
-                {
-                    value: "admin",
-                    desc: "Admin",
-                },
-                {
-                    value: "user",
-                    desc: "User"
-                },
-                {
-                    value: "super-admin",
-                    desc: "Super Admin"
-                }
-            ],
             validations: [
+
                 {
-                    type: "required",
-                    message: "Rol is required"
-                }
-            ]
+                    type: "nullable",
+                    message: "",
+                },
+                {
+                    type: "minLength",
+                    value: 10,
+                    message: "Telefono debe tener al menos 10 digitos",
+                },
+
+                {
+                    type: "positive",
+                    message: "Debe ser número entero y positivo",
+
+                },
+            ],
         },
+
         {
-            type: "radio",
-            name: "gender",
-            label: "Gender: ",
+
+            label: "Domicilio",
+            type: "text",
+            name: "domicilio",
+            placeholder: "Domicilio ",
             value: "",
-            options: [
+            validations: [
                 {
-                    value: 'man',
-                    desc: "Man"
+                    type: "nullable",
+                    message: "",
                 },
-                {
 
-                    value: "woman",
-                    desc: "Woman"
-                },
                 {
+                    type: "isRazon",
+                    message: 'Domicilio invalido',
 
-                    value: "other",
-                    desc: "Other"
-                },
+                }
+
             ],
-            validations: [
-                {
-                    type: "required",
-                    message: "Gender is required"
-                }
-            ]
-        },
-        {
-            type: "checkbox",
-            name: "terms",
-            typeValue: "boolean",
-            label: "Terms and Conditions",
-            value: false,
-            validations: [
-                {
-                    type: "isTrue",
-                    message: "Accept the terms!"
-                }
-            ]
+
         },
     ]
 }

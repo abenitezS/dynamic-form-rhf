@@ -1,11 +1,11 @@
 export const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
 	return (
 		<>
-			<h1 className='text-center my-10 text-5xl'>
-				<span>Dynamic Form</span>
+			<h1 className='text-left my-10 text-5xl'>
+				<span>Crear</span>
 				<span className='font-bold bg-clip-text text-transparent  text-[#EC5990]'>
 					{' - '}
-					React Hook Form
+					Proponente
 				</span>
 			</h1>
 
